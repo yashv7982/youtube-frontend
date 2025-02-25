@@ -1,173 +1,119 @@
-1. Project Overview
-This project aims to replicate core functionalities of YouTube:
+# YouTube Clone (MERN Stack)
 
-Home Page: Displays a grid of videos with filtering and searching.
-Video Player Page: Plays videos (local or YouTube embed), shows channel info, displays comments.
-Channel Page: Shows a channel’s videos and channel banner/logo.
-User Authentication: Users can register/login, then upload videos and comment.
-Comments: Users can add/edit/delete their own comments under each video.
-Category Filtering: Users can filter videos by category (e.g., Music, Gaming, Education, etc.).
-2. Key Features
-User Authentication
+A full-stack YouTube-like application built with **MongoDB**, **Express**, **React**, and **Node.js**. Users can upload videos (by providing links), filter them by category, search for videos, comment on them, view channel pages, and more.
 
-Register and log in using email/password.
-Store JWT token for protected routes (uploading, commenting).
-Channel Management
+---
 
-Each user can create a channel (with banner, logo).
-Channel page displays channel’s videos, subscriber count, etc.
-Video Upload
+## 1. Project Overview
 
-Users can upload video data (title, thumbnail, video URL, category).
-If the video URL is a YouTube link, it’s embedded; otherwise, a local <video> tag is used.
-Home Page with Category Filter
+This project replicates core functionalities of YouTube:
 
-Horizontal “chip” style filter bar to filter videos by category.
-Search bar to filter videos by title.
-Video Player Page
+- **Home Page**: Displays a grid of videos with filtering and searching.
+- **Video Player Page**: Plays videos (local or YouTube embed), shows channel info (logo, name), and displays comments.
+- **Channel Page**: Shows a channel’s videos along with the channel banner and logo.
+- **User Authentication**: Users can register and log in, then upload videos and comment.
+- **Comments**: Users can add, edit, and delete their own comments on videos.
+- **Category Filtering**: Users can filter videos by category (e.g., Music, Gaming, Education, etc.).
 
-Plays the selected video.
-Displays channel logo/name, subscribe button, likes/dislikes, description.
-Comment section with CRUD (Create, Read, Update, Delete) for each user’s own comments.
-Comment Section
+---
 
-Show user’s avatar, username, timestamp, text.
-Owner of comment can edit or delete it.
-3. Technologies Used
-Frontend:
+## 2. Key Features
 
-React (create-react-app or Vite)
-React Router (for routing)
-Axios (for HTTP requests)
-CSS modules or plain CSS for styling
-Backend:
+- **User Authentication**  
+  - Register and log in using email/password.
+  - JWT-based authentication for protected routes (uploading, commenting).
 
-Node.js
-Express.js
-MongoDB (Mongoose for ODM)
-JWT (jsonwebtoken) for auth
-bcryptjs for password hashing
-4. Folder Structure
-pgsql
-Copy
-youtube-clone
- ┣━ client/ (Frontend)
- ┃   ┣━ src/
- ┃   ┃   ┣━ components/
- ┃   ┃   ┃   ┣━ Header.jsx
- ┃   ┃   ┃   ┣━ Sidebar.jsx
- ┃   ┃   ┃   ┣━ VideoCard.jsx
- ┃   ┃   ┃   ┣━ FilterBar.jsx
- ┃   ┃   ┃   ┗━ CommentsSection.jsx
- ┃   ┃   ┣━ pages/
- ┃   ┃   ┃   ┣━ Home.jsx
- ┃   ┃   ┃   ┣━ VideoPlayer.jsx
- ┃   ┃   ┃   ┣━ UploadVideoPage.jsx
- ┃   ┃   ┃   ┣━ ChannelPage.jsx
- ┃   ┃   ┃   ┗━ AuthPage.jsx
- ┃   ┃   ┣━ api.js
- ┃   ┃   ┗━ App.jsx
- ┃   ┣━ package.json
- ┗━ server/ (Backend)
-     ┣━ config/
-     ┃   ┗━ db.js
-     ┣━ controllers/
-     ┃   ┣━ userController.js
-     ┃   ┣━ videoController.js
-     ┃   ┣━ channelController.js
-     ┃   ┗━ commentController.js
-     ┣━ middleware/
-     ┃   ┗━ authMiddleware.js
-     ┣━ models/
-     ┃   ┣━ User.js
-     ┃   ┣━ Channel.js
-     ┃   ┣━ Video.js
-     ┃   ┗━ Comment.js
-     ┣━ routes/
-     ┃   ┣━ userRoutes.js
-     ┃   ┣━ videoRoutes.js
-     ┃   ┣━ channelRoutes.js
-     ┃   ┗━ commentRoutes.js
-     ┣━ .env
-     ┣━ server.js
-     ┗━ package.json
-5. Installation & Setup
-5.1. Clone Repository
-bash
-Copy
-git clone https://github.com/yourusername/youtube-clone.git
-cd youtube-clone
-5.2. Install Server Dependencies
-bash
-Copy
+- **Channel Management**  
+  - Create a channel (with banner, logo, description).
+  - View channel details and videos on the channel page.
+
+- **Video Upload**  
+  - Upload video metadata (title, thumbnail, video URL, category).
+  - If a YouTube video link is provided, the video is embedded via an `<iframe>`.
+
+- **Home Page with Category Filter**  
+  - A horizontal “chip” style filter bar to filter videos by category.
+  - A search bar to filter videos by title.
+
+- **Video Player Page**  
+  - Plays the selected video.
+  - Displays channel logo, channel name, subscribe button, like/dislike buttons, and description.
+  - Includes a comment section with CRUD functionality for comments.
+
+- **Comment Section**  
+  - Display user avatar, username, timestamp, and comment text.
+  - Allow the comment owner to edit or delete their comment.
+
+---
+
+## 3. Technologies Used
+
+- **Frontend**:  
+  - React (Vite or create-react-app)  
+  - React Router  
+  - Axios  
+  - CSS (or CSS modules)
+
+- **Backend**:  
+  - Node.js  
+  - Express.js  
+  - MongoDB (with Mongoose)  
+  - JSON Web Tokens (JWT)  
+  - bcryptjs
+
+---
+
+## Install Server Dependencies
+
 cd server
 npm install
-5.3. Configure .env (Backend)
-Create a .env file in the server/ folder:
 
-ini
-Copy
+
+## Configure .env (Backend)
+
 PORT=5000
 MONGODB_URI=mongodb://localhost:27017/youtube_clone
-JWT_SECRET=your_jwt_secret
-5.4. Install Client Dependencies
-bash
-Copy
+JWT_SECRET=code
+
+## Install Client Dependencies
+
 cd ../client
 npm install
-(Or yarn install if using Yarn.)
 
-6. Usage
-6.1. Running the Backend
-From the server folder:
+##  Usage
+##  Running the Backend
 
-bash
-Copy
 npm run dev
-This starts the Express server on http://localhost:5000 (or your .env PORT).
 
-6.2. Running the Frontend
-From the client folder:
+##  Running the Frontend
 
-bash
-Copy
 npm run dev
-This starts the React dev server (often on http://localhost:5173 if using Vite).
 
-6.3. Open the App
-Visit your frontend URL (e.g., http://localhost:5173). You should see the Home page with videos.
+##  Open the App
 
-7. Environment Variables
-PORT: The backend server port (default 5000).
-MONGODB_URI: Connection string for MongoDB.
-JWT_SECRET: Secret key for signing JWT tokens.
-8. API Endpoints (Brief)
-User
+http://localhost:5173
 
-POST /api/users/register (create user)
-POST /api/users/login (login, returns token)
+## API Endpoints (Overview)
+
+
+
+POST /api/users/register – Register a new user.
+POST /api/users/login – Log in and receive a JWT token.
 Channel
 
-POST /api/channels (protected, create channel)
-GET /api/channels/:id (get channel details)
-PUT /api/channels/:id (protected, update channel)
+POST /api/channels – Create a new channel (protected).
+GET /api/channels/:id – Get channel details.
+PUT /api/channels/:id – Update channel details (protected).
 Video
 
-GET /api/videos (fetch all videos)
-GET /api/videos/:id (fetch single video)
-POST /api/videos (protected, upload new video)
-PUT /api/videos/:id (protected, update video)
-DELETE /api/videos/:id (protected, delete video)
+GET /api/videos – Get all videos.
+GET /api/videos/:id – Get a single video.
+POST /api/videos – Upload a new video (protected; includes category).
+PUT /api/videos/:id – Update video details (protected).
+DELETE /api/videos/:id – Delete a video (protected).
 Comment
 
-GET /api/comments/video/:videoId (fetch comments for a video)
-POST /api/comments (protected, add comment)
-PUT /api/comments/:id (protected, edit comment)
-DELETE /api/comments/:id (protected, delete comment)
-9. Screenshots / Design (Optional)
-You can include screenshots of:
-
-Home Page: with category filter chips and video grid.
-Video Player Page: with channel logo, like/dislike, comments section.
-Upload Page: with category dropdown.
-Channel Page: with channel banner, logo, list of videos.
+GET /api/comments/video/:videoId – Get comments for a video.
+POST /api/comments – Add a comment (protected).
+PUT /api/comments/:id – Edit a comment (protected).
+DELETE /api/comments/:id – Delete a comment (protected).
