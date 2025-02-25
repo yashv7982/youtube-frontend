@@ -1,0 +1,118 @@
+.search-result-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Parent container for each result */
+.search-result-card {
+  display: flex;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+  cursor: pointer;
+  border-bottom: 1px solid #e2e2e2;
+  padding-bottom: 1rem;
+}
+
+/* Thumbnail with 16:9 aspect ratio */
+.search-result-thumbnail {
+  position: relative;
+  width: 240px; /* Adjust as needed for desktop */
+  flex-shrink: 0;
+  background-color: #ccc;
+}
+.search-result-thumbnail::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%; /* 16:9 ratio */
+}
+.search-result-thumbnail img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px; /* Rounded corners */
+}
+
+/* Info section to the right of thumbnail */
+.search-result-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.search-result-title {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #030303;
+  line-height: 1.2;
+}
+
+.search-result-channel {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #606060;
+  margin-bottom: 0.25rem;
+}
+
+.search-channel-logo {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 0.5rem;
+}
+
+.search-result-stats {
+  font-size: 0.9rem;
+  color: #606060;
+  margin-bottom: 0.5rem;
+}
+
+.search-result-description {
+  font-size: 0.9rem;
+  color: #606060;
+  line-height: 1.3;
+}
+
+/* ===========================
+   MEDIA QUERY: Small Screens
+   =========================== */
+@media (max-width: 640px) {
+  /* Make each result vertical */
+  .search-result-card {
+    flex-direction: column;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 1rem;
+    gap: 0.5rem;
+  }
+
+  /* Thumbnail goes full width */
+  .search-result-thumbnail {
+    width: 100%;
+    margin: 0 auto; /* center if you like */
+  }
+  .search-result-thumbnail::before {
+    /* Keep the 16:9 ratio, but now for full width on mobile */
+    padding-top: 56.25%;
+  }
+
+  /* Text container below the thumbnail */
+  .search-result-info {
+    align-items: flex-start;
+  }
+
+  /* Adjust font sizes if needed */
+  .search-result-title {
+    font-size: 0.95rem;
+  }
+  .search-result-channel,
+  .search-result-stats,
+  .search-result-description {
+    font-size: 0.85rem;
+  }
+}

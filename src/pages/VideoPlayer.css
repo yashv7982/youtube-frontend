@@ -1,0 +1,136 @@
+/* VideoPlayer.css */
+
+/* Container for the entire video player page */
+.video-player-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* Main video area */
+.main-video-section {
+  flex: 3;
+}
+
+/* Style for <video> element (if not a YouTube link) */
+.video-element {
+  width: 100%;
+  max-height: 60vh;
+  background: #000;
+  margin-bottom: 0.75rem;
+  border-radius: 4px;
+}
+
+/* Container for YouTube iframe */
+.video-iframe-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 ratio */
+  margin-bottom: 0.75rem;
+}
+.video-iframe-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Video title styling */
+.vp-title {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+/* Meta row: views, date, and buttons */
+.vp-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.vp-meta-left {
+  font-size: 0.9rem;
+  color: #666;
+}
+.vp-meta-right .vp-btn {
+  margin-left: 0.5rem;
+}
+
+/* Channel row: channel logo, info, and subscribe button */
+.vp-channel-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.vp-channel-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-right: 0.75rem;
+  object-fit: cover;
+}
+.vp-channel-info {
+  flex: 1;
+}
+.vp-channel-name {
+  margin: 0;
+  font-size: 1rem;
+}
+.vp-channel-subscribers {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Subscribe button styling */
+.subscribe-btn {
+  background-color: #cc0000;
+  color: #fff;
+  margin-left: auto;
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.subscribe-btn.subscribed {
+  background-color: #555;
+}
+
+/* Description area */
+.vp-description {
+  background-color: #f9f9f9;
+  padding: 0.75rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+/* Generic button style for like, dislike, share */
+.vp-btn {
+  display: inline-flex;
+  align-items: center;
+  background-color: #f2f2f2;
+  border: none;
+  border-radius: 2px;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #333;
+}
+.vp-btn:hover {
+  background-color: #e2e2e2;
+}
+
+/* Recommended videos section */
+.recommended-section {
+  flex: 1;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+.up-next-title {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}

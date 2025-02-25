@@ -1,0 +1,27 @@
+/* Container for the entire search page */
+.search-page {
+  padding: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.search-heading {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.no-results {
+  color: #555;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+
+@media (max-width: 640px) {
+  .search-page {
+    padding: 0.5rem;
+    max-width: 100%;  /* Use full width on mobile */
+    margin: 0;
+  }
+}

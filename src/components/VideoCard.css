@@ -1,0 +1,91 @@
+/* src/components/VideoCard.css */
+
+/* The link wrapper */
+.video-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Base card container */
+.video-card {
+  width: 280px; /* Adjust as needed for your layout */
+  margin-bottom: 1rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 16:9 aspect ratio container for the thumbnail */
+.thumbnail-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 ratio (9 / 16 * 100) */
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: #ccc; /* fallback color if image not loaded */
+}
+
+.thumbnail-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* crops/zooms image to fill container */
+}
+
+/* Details container */
+.video-details {
+  display: flex;
+  margin-top: 0.5rem;
+  align-items: flex-start;
+}
+
+/* Info container for title, channel, views */
+.video-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.video-title {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  color: #030303;
+  line-height: 1.2;
+}
+
+.video-channel {
+  font-size: 0.85rem;
+  color: #606060;
+  margin-bottom: 0.25rem;
+}
+
+.video-stats {
+  font-size: 0.85rem;
+  color: #606060;
+}
+
+/* Smaller (recommended) layout if "small" prop is true */
+.video-card.small {
+  flex-direction: row;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+/* Adjust the thumbnail for the recommended layout */
+.video-card.small .thumbnail-container {
+  width: 168px; /* typical recommended video thumbnail width */
+  min-width: 168px;
+  margin-right: 0.75rem;
+  position: relative;
+  padding-top: calc(168px * 9 / 16); /* ~94.5px for 16:9 ratio */
+}
+
+.video-card.small .video-details {
+  flex: 1;
+  margin-top: 0;
+  flex-direction: column;
+}
